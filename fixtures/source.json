@@ -1,0 +1,98 @@
+{
+  "exchanges": [
+    {
+      "path": "/objects/trend1",
+      "method": "GET",
+      "body": {
+        "generation": "g1",
+        "capacity": 3,
+        "totalRecordCount": 2,
+        "firstSequence": 1,
+        "lastSequence": 2,
+        "logDeviceObjectProperty": "ahu/temp",
+        "presentValue": 22
+      },
+      "requires": {},
+      "sets": {},
+      "status": 200,
+      "query": {}
+    },
+    {
+      "path": "/range",
+      "method": "POST",
+      "body": {
+        "firstSequence": 1,
+        "itemCount": 2,
+        "moreItems": false,
+        "records": [
+          {
+            "sequence": 1,
+            "time": 10,
+            "value": 21
+          },
+          {
+            "sequence": 2,
+            "time": 11,
+            "value": 22
+          }
+        ]
+      },
+      "requires": {},
+      "sets": {},
+      "status": 200,
+      "query": {}
+    }
+  ],
+  "cases": {
+    "overwritten": [
+      {
+        "path": "/objects/trend1",
+        "method": "GET",
+        "body": {
+          "generation": "g1",
+          "capacity": 3,
+          "totalRecordCount": 8,
+          "firstSequence": 6,
+          "lastSequence": 8,
+          "logDeviceObjectProperty": "ahu/temp",
+          "presentValue": 23
+        },
+        "requires": {},
+        "sets": {},
+        "status": 200,
+        "query": {}
+      },
+      {
+        "path": "/range",
+        "method": "POST",
+        "body": {
+          "error": "overwritten",
+          "firstSequence": 6
+        },
+        "requires": {},
+        "sets": {},
+        "status": 410,
+        "query": {}
+      }
+    ],
+    "remapped": [
+      {
+        "path": "/objects/trend1",
+        "method": "GET",
+        "body": {
+          "generation": "g2",
+          "capacity": 3,
+          "totalRecordCount": 1,
+          "firstSequence": 1,
+          "lastSequence": 1,
+          "logDeviceObjectProperty": "ahu/humidity",
+          "presentValue": 51
+        },
+        "requires": {},
+        "sets": {},
+        "status": 200,
+        "query": {}
+      }
+    ]
+  }
+}
