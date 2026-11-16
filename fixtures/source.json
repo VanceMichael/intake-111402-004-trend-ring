@@ -75,6 +75,52 @@
         "query": {}
       }
     ],
+    "shutdown": [
+      {
+        "path": "/objects/trend1",
+        "method": "GET",
+        "body": {
+          "generation": "g1",
+          "capacity": 6,
+          "totalRecordCount": 6,
+          "firstSequence": 1,
+          "lastSequence": 6,
+          "logDeviceObjectProperty": "ahu/temp",
+          "presentValue": 24
+        },
+        "log": {
+          "status": [
+            {"sequence": 3, "time": 13, "logDisabled": true},
+            {"sequence": 5, "time": 15, "bufferPurged": true},
+            {"sequence": 6, "time": 16, "timeChange": true}
+          ]
+        },
+        "requires": {},
+        "sets": {},
+        "status": 200,
+        "query": {}
+      }
+    ],
+    "rotating": [
+      {
+        "path": "/objects/trend1",
+        "method": "GET",
+        "body": {
+          "generation": "g1",
+          "capacity": 3,
+          "totalRecordCount": 4,
+          "firstSequence": 2,
+          "lastSequence": 4,
+          "logDeviceObjectProperty": "ahu/temp",
+          "presentValue": 24
+        },
+        "log": {"rotatePerRange": 2},
+        "requires": {},
+        "sets": {},
+        "status": 200,
+        "query": {}
+      }
+    ],
     "remapped": [
       {
         "path": "/objects/trend1",
